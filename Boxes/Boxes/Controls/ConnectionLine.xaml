@@ -1,0 +1,25 @@
+﻿<controls:NegativeSizesUserControl
+    x:Class="Boxes.Controls.ConnectionLine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Boxes.Controls"
+    SizeChanged="OnSizeChanged">
+    <Canvas
+        x:Name="LayoutRoot">
+        <Path
+            x:Name="TopLine"
+            Style="{StaticResource ConnectionLine}"
+            Width="2"
+            Data="M0,0 L0,1" />
+        <Path
+            x:Name="MiddleLine"
+            Style="{StaticResource ConnectionLine}"
+            Height="2"
+            Data="M0,0 L1,0" />
+        <Path
+            x:Name="BottomLine"
+            Style="{StaticResource ConnectionLine}"
+            Width="2"
+            Data="M0,0 L0,1" />
+    </Canvas>
+</controls:NegativeSizesUserControl>

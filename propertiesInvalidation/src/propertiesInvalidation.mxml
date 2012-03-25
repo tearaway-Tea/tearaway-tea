@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	viewSourceURL="http://code.google.com/p/tearaway-tea/source/browse/trunk/propertiesInvalidation/src/"
+	creationComplete="onCreationComplete()">
+	<mx:Script>
+		<![CDATA[
+			import com.tearaway_tea.model.ItemDTO;
+			import mx.collections.ArrayCollection;
+			import com.tearaway_tea.model.OpportunityDTO;
+
+			protected function onCreationComplete() : void
+			{
+				_opportunity = new OpportunityDTO();
+				_opportunity.date = new Date();
+				_opportunity.children = new ArrayCollection([new ItemDTO("one"),
+					new ItemDTO("two"), new ItemDTO("three")])
+			}
+
+			protected function onClick() : void
+			{
+				for each (var item : ItemDTO in _opportunity.children)
+				{
+					traceTextArea.text += item.name + "\n";
+				}
+			}
+
+			private var _opportunity : OpportunityDTO;
+		]]>
+	</mx:Script>
+	<mx:Button 
+		label="Check children"
+		click="onClick()"/>
+	<mx:TextArea 
+		id="traceTextArea"
+		width="300"
+		height="300"/>
+</mx:Application>

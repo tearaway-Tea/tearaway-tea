@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:views="com.tearaway_tea.opportunities.views.*"
+	xmlns:maps="com.tearaway_tea.opportunities.maps.*"
+	viewSourceURL="http://code.google.com/p/tearaway-tea/source/browse/trunk/opportunities/src/">
+	<maps:DataInjectionMap />
+	<maps:OpportunitiesEventMap />
+	<maps:DataProviderEventMap />
+	<maps:NavigationEventMap />
+	<views:Index
+		width="100%"
+		height="100%" />
+</mx:Application>

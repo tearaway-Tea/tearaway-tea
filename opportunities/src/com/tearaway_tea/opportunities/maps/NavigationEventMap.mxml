@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EventMap 
+	xmlns="http://mate.asfusion.com/" 
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.tearaway_tea.opportunities.data.OpportunityViewState;
+			import com.tearaway_tea.opportunities.views.Index;
+			import com.tearaway_tea.opportunities.events.NavigationEvent;
+		]]>
+	</mx:Script>
+	
+	<EventHandlers 
+		type="{NavigationEvent.NAVIGATE_LIST_VIEW}">
+		<MethodInvoker
+			generator="{OpportunityViewState}"
+			method="setSelectedIndex"
+			arguments="{[0]}" />
+	</EventHandlers>
+
+	<EventHandlers 
+		type="{NavigationEvent.NAVIGATE_EDIT_VIEW}">
+		<MethodInvoker
+			generator="{OpportunityViewState}"
+			method="setSelectedIndex"
+			arguments="{[1]}" />
+	</EventHandlers>
+		
+</EventMap>

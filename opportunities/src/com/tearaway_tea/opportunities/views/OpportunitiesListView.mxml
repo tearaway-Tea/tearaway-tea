@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpportunitiesListViewBase
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns="com.tearaway_tea.opportunities.views.*">
+	
+	<mx:Array
+		id="commandButtons">
+		<mx:Button
+			label="New"
+			click="onNewClick()" />
+		<mx:Button
+			label="Edit"
+			enabled="{dataGrid.selectedItem != null}"
+			click="onEditClick()" />
+	</mx:Array>
+	
+	<mx:DataGrid
+		id="dataGrid"
+		width="100%"
+		height="100%"
+		doubleClickEnabled="true"
+		dataProvider="{dataProvider}"
+		doubleClick="onGridDoubleClick()">
+		<mx:columns>
+			<mx:DataGridColumn
+				width="30"
+				headerText="ID"
+				dataField="id" />
+			<mx:DataGridColumn
+				headerText="Name"
+				dataField="name" />
+			<mx:DataGridColumn
+				width="120"
+				headerText="Start Date"
+				dataField="startDate"
+				labelFunction="{dateLabelFunction}" />
+			<mx:DataGridColumn
+				width="120"
+				headerText="End Date"
+				dataField="endDate"
+				labelFunction="{dateLabelFunction}" />
+			<mx:DataGridColumn
+				width="120"
+				headerText="Last Update Date"
+				dataField="lastUpdate"
+				labelFunction="{dateLabelFunction}" />
+		</mx:columns>
+	</mx:DataGrid>
+</OpportunitiesListViewBase>

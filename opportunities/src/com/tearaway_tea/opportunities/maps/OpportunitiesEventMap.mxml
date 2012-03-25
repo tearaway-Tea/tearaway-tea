@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EventMap 
+	xmlns="http://mate.asfusion.com/"
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+
+	<mx:Script>
+		<![CDATA[
+			import com.tearaway_tea.opportunities.data.OpportunityDataProvider;
+			import com.tearaway_tea.opportunities.events.NavigationEvent;
+			import com.tearaway_tea.opportunities.events.OpportunityEvent;
+		]]>
+	</mx:Script>
+
+	<EventHandlers 
+		type="{OpportunityEvent.CREATE_OPPORTUNITY}">
+		<MethodInvoker 
+			generator="{OpportunityDataProvider}"
+			method="createOpportunity"/>
+	</EventHandlers>
+
+	<EventHandlers 
+		type="{OpportunityEvent.EDIT_OPPORTUNITY}">
+		<MethodInvoker 
+			generator="{OpportunityDataProvider}"
+			method="editOpportunity"
+			arguments="{[event.data]}"/>
+		<EventAnnouncer 
+			type="{NavigationEvent.NAVIGATE_EDIT_VIEW}"
+			generator="{NavigationEvent}"/>
+	</EventHandlers>
+
+	<EventHandlers 
+		type="{OpportunityEvent.SAVE_OPPORTUNITY}">
+		<MethodInvoker 
+			generator="{OpportunityDataProvider}"
+			method="saveOpportunity"/>
+	</EventHandlers>
+
+	<EventHandlers 
+		type="{OpportunityEvent.CLOSE_OPPORTUNITY}">
+		<EventAnnouncer 
+			type="{NavigationEvent.NAVIGATE_LIST_VIEW}"
+			generator="{NavigationEvent}"/>
+	</EventHandlers>
+
+</EventMap>

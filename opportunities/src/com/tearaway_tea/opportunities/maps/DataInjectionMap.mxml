@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EventMap 
+	xmlns="http://mate.asfusion.com/" 
+	xmlns:mx="http://www.adobe.com/2006/mxml">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.tearaway_tea.opportunities.data.OpportunityViewState;
+			import com.tearaway_tea.opportunities.views.Index;
+			import com.tearaway_tea.opportunities.data.OpportunityDataProvider;
+			import com.tearaway_tea.opportunities.views.OpportunityEditView;
+			import com.tearaway_tea.opportunities.data.OpportunitiesDataProvider;
+			import com.tearaway_tea.opportunities.views.OpportunitiesListView;
+		]]>
+	</mx:Script>
+	
+	<Injectors
+		target="{Index}">
+		<PropertyInjector
+			targetKey="selectedIndex"
+			source="{OpportunityViewState}"
+			sourceKey="selectedIndex" />		
+	</Injectors>
+	
+	<Injectors
+		target="{OpportunitiesListView}">
+		<PropertyInjector
+			targetKey="dataProvider"
+			source="{OpportunitiesDataProvider}" />		
+	</Injectors>
+
+	<Injectors
+		target="{OpportunityEditView}">
+		<PropertyInjector
+			targetKey="opportunity"
+			source="{OpportunityDataProvider}"
+			sourceKey="opportunity" />
+	</Injectors>
+	
+</EventMap>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpportunityEditViewBase
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns="com.tearaway_tea.opportunities.views.*">
+	
+	<mx:Binding
+		source="nameTextInput.text"
+		destination="opportunity.name"/>
+		
+	<mx:Binding
+		source="startDateChooser.selectedDate"
+		destination="opportunity.startDate"/>
+		
+	<mx:Binding
+		source="endDateChooser.selectedDate"
+		destination="opportunity.endDate"/>
+	
+	<mx:Array
+		id="commandButtons">
+		<mx:Button
+			label="Save"
+			click="onSaveClick()" />
+		<mx:Button
+			label="Close"
+			click="onCloseClick()" />
+	</mx:Array>
+	
+	<mx:Form
+		width="100%"
+		height="100%">
+		<mx:FormItem
+			label="Id:">
+			<mx:TextInput
+				enabled="false"
+				text="{opportunity.id}"/>
+		</mx:FormItem>
+		
+		<mx:FormItem
+			label="Name:"
+			required="true">
+			<mx:TextInput
+				id="nameTextInput"
+				text="{opportunity.name}" />
+		</mx:FormItem>
+		
+		<mx:FormItem
+			label="Date Region:"
+			direction="horizontal">
+			<mx:DateChooser
+				id="startDateChooser"
+				selectedDate="{opportunity.startDate}" />
+			<mx:DateChooser
+				id="endDateChooser"
+				selectedDate="{opportunity.endDate}" />
+		</mx:FormItem>
+	</mx:Form>
+	
+</OpportunityEditViewBase>
